@@ -9,10 +9,9 @@
 //   });
 // });
 
-// Board setup — you may need to change the port
+// Board setup
 var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
 
-// Test Pressed, Held, Released
 var button;
 
 function setup() {
