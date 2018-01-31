@@ -1,46 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>clickittillyoumakeit</title>
-
-    <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
-    <script src="p5/p5.js" charset="utf-8"></script>
-    <script src="p5/p5bots.min.js" charset="utf-8"></script>
-    <script src="js/app.js"></script>
-
-  </head>
-
-  <body>
-    <video src="../../video.mp4"  poster="posterimage.jpg" id="video">
-    </video>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>button clickerdeclick</title>
+</head>
+<body>
+   <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+   <script src="scripts/p5.min.js"></script>
+   <script src="scripts/p5bots.js"></script>
+   <script src="scripts/p5.sound.min.js"></script>
+   <!-- <script src="js/button.js"></script> -->
+   <video src="../video.mp4"  poster="posterimage.jpg" id="video">
+   </video>
+</body>
 </html>
 
 <script type="text/javascript">
 
-// Load in video
-let video = document.getElementById('video'),
+var b = p5.board('/dev/cu.wchusbserial14130', 'arduino'); // Board setup
+var button; // Physical Button
+button = b.pin(12, 'BUTTON'); // attach to pin
+
+let video = document.getElementById('video'), // Load video
   lastTime = -1;
 
 // Score
-let score = 0;
+let score = 10;
+let scoreMouse = 0;
+let scoreButton = 0;
 let scoreFrameRate = 0;
 
-video.play()
+video.play();
 video.height = 500
 
 // onmousemove
 document.onmousemove = function(e){
   // score += 0.6; // dit is variabel
-  scoreFrameRate += 1
+  score += 2
 };
 
 // this fires when the key is Pressed
 function keyPressed(){
-  score += 20 // dit is variabel
+  score += 2 // dit is variabel
 }
 
+function buttonmuis() {
+  score += 10
+}
 
 function draw(){
   // Decrease score
@@ -48,9 +54,9 @@ function draw(){
     score -=0.5; // waarde waarmee de score naar beneden gaat
   }
 
-
   showHeight()
   decreaseHeight()
+  decreaseMouse()
   decreaseFrameRate()
   //showFrameRate();
   //setCurrentTime()
@@ -64,7 +70,13 @@ function decreaseFrameRate(){
 
 function decreaseHeight(){
   if(score > 20){
-    score -=0.5;
+    score -= 0.5;
+  }
+}
+
+function decreaseMouse(){
+  if(score > 20){
+    score -= 0.5;
   }
 }
 
@@ -96,8 +108,21 @@ function setCurrentTime(){
 }
 
 // set  volume
-function setVolume(){
-  video.volume = score
+function getVolume(){
+  video.volume = score;
 }
+
+
+
+
+  button.read();
+  button.pressed(buttonmuis);
+
+
+
+function setup() {
+
+}
+
 
 </script>

@@ -5,19 +5,20 @@ var b = p5.board('/dev/cu.wchusbserial1410', 'arduino');
 var button;
 
 function setup() {
+  createCanvas(600, 200);
 
   button = b.pin(12, 'BUTTON');
 
-  function roodstipje() {
+  function redEllipse() {
     console.log('pressed');
-    scoreButton += 20
-    console.log('scoreButton');
-
     clear();
+    noStroke();
+    fill(255, 0, 0);
+    ellipse(100, 100, 40, 40);
   }
 
   button.read();
-  button.pressed(roodstipje);
+  button.pressed(redEllipse);
   button.released(clear);
 
 }
