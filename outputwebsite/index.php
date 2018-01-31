@@ -4,12 +4,15 @@
     <meta charset="utf-8">
     <title></title>
     <script src="p5/p5.js" charset="utf-8"></script>
+    <script src="p5/p5bots.min.js" charset="utf-8"></script>
+    <!-- temporary -->
+    <script src="js/buttontest.js"></script>
+
+    </script>
   </head>
 
   <body>
-
     <video src="../../video.mp4"  poster="posterimage.jpg" id="video">
-
     </video>
 
   </body>
@@ -26,7 +29,6 @@
   video.play()
   video.height = 500
 
-
   // onmousemove
   document.onmousemove = function(e){
     score += 0.6; // dit is variabel
@@ -42,48 +44,47 @@
     if(score > 0 ){
       score -=0.5; // waarde waarmee de score naar beneden gaat
     }
-    // showHeight();
-    // showFrameRate();
+    showHeight();
+    showFrameRate();
     setCurrentTime();
   }
 
-  //show heigh
+  //show height
   function showHeight() {
-    video.height = score;
+    video.height = score
   }
 
-
   // // increase size
-  // function increaseHeight(sc) {
-  //   // score += sc
-  //   video.height = score
-  // }
+  function increaseHeight(sc) {
+    // score += sc
+    video.height = score
+  }
 
   // show framerate
   function showFrameRate() {
-    video.playbackRate = score;
+    video.playbackRate = score
   }
 
   // // set framerate
-  // function setFrameRate(fr) {
-  //   video.playbackRate = score
-  // }
-
+  function setFrameRate(fr) {
+    video.playbackRate = score
+  }
 
   // set currenttime
-
   function setCurrentTime(){
     video.currenttime = score
   }
 
-
   // set  volume
-
-
-
+  function setVolume(){
+    video.volume = score
+  }
 
   function setup(){
     noCanvas()
   }
+
+
+
 
 </script>
