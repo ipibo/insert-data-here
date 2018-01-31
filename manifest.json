@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name":"Vending Machine Extention",
+  "version": "1",
+  "content_scripts":[
+    {
+      "matches":[
+        "<all_urls>"
+      ],
+      "js": ["content.js","print.js"],
+      "css": ["mystyles.css"]
+    }
+  ],
+  "browser_action":{
+    "default_popup":"popup.html"
+  }
+
+}

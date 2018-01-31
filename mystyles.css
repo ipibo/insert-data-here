@@ -1,0 +1,20 @@
+#counter{
+  background: rgba(0,0,0,0.5);
+  bottom: 0px;
+  color: white;
+  height: 4%;
+  margin: 0px;
+  position: fixed;
+  right: 0px;
+  width: 20%;
+}
+
+#score{
+  /* font-size: 20px; */
+  color: rgba(255,255,255,1);
+  font-family: monospace;
+  margin-top: 5px;
+  text-align:right;
+  margin-right: 10px;
+
+}
