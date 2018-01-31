@@ -20,23 +20,26 @@
 
 <script type="text/javascript">
 
-var video = document.getElementById('video'),
-  lastTime = -1;
+  var video = document.getElementById('video'),
+    lastTime = -1;
 
-// print(video.currentTime)
-let score = 0;
+  let score = 0;
 
-document.onmousemove = function(e){
-  score += 0.01;
-  video.currentTime = score;
-  print(video.currentTime)
-};
+  document.onmousemove = function(e){
+    // score += 0.01;
+    // video.currentTime = score;
+
+    // print(video.currentTime)
+
+    // let random = Math.random() * 0.8 +0.2
+    // print(random)
+    // video.volume = random
+
+  };
 
 
-
-
-function print(p){
-  console.log(p);
-}
+  function print(p){
+    console.log(p);
+  }
 
 </script>
